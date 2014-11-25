@@ -28,7 +28,10 @@ Se esse passo foi um sucesso, um diretório classifier/dist foi criado contendo 
 
 Para executar, vá até o diretório classifier/dist (tanto o arquivo classificar e classifier.jar devem ficar dentro desse diretório).
 
-E faça ./classificar -h.
+E faça:
+```
+./classificar -h.
+```
 
 Esse comando vai mostrar um breve help mostrando como executar o script:
 
