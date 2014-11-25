@@ -60,10 +60,9 @@ TECHNIQUE: available techniques are:
 O parametro -v (ou --verbose se preferir) executa o programa mostrando a classificação de cada imagem.
 
 O parametro TECHNIQUE é a técnica usada para classificar a imagem, uma lista de técnicas está disponível:
+
 	* NaiveBayes
-
 	* ClassificationViaRegression
-
 	* BIFReader
 	* ZeroR
 	* REPTree
