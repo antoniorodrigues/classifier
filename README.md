@@ -72,27 +72,34 @@ O parametro TECHNIQUE é a técnica usada para classificar a imagem, uma lista d
 	* DecisionStump
 
 O parametro TRAINING_PATH deve apontar para o diretório contendo as imagens de teste. Esse diretório deve conter os seguintes diretórios:
-	digitos: contendo imagens que tenham apenas dígitos.
-	letras: contendo imagens que tenham apenas letras.
-	digitos_letras: contendo imagens que contenham dígitos e letras.
-	sem_caracteres: contendo imagens que não contenham nem dígitos nem letras.
+
+	* digitos: contendo imagens que tenham apenas dígitos.
+	* letras: contendo imagens que tenham apenas letras.
+	* digitos_letras: contendo imagens que contenham dígitos e letras.
+	* sem_caracteres: contendo imagens que não contenham nem dígitos nem letras.
+
 Esses diretórios são mandatórios.
 
 O parametro TEST_PATH deve aponstar para o diretório contendo as imagens de teste. Esse diretório deve conter os seguintes diretórios:
-	digitos: contendo imagens que tenham apenas dígitos.
-	letras: contendo imagens que tenham apenas letras.
-	digitos_letras: contendo imagens que contenham dígitos e letras.
-	sem_caracteres: contendo imagens que não contenham nem dígitos nem letras.
+
+	* digitos: contendo imagens que tenham apenas dígitos.
+	* letras: contendo imagens que tenham apenas letras.
+	* digitos_letras: contendo imagens que contenham dígitos e letras.
+	* sem_caracteres: contendo imagens que não contenham nem dígitos nem letras.
+
 Esses diretórios são mandatórios.
 
 Para executar a classificação você deve executar a seguinte linha:
-
-	* ./classificar [ -v | --verbose ] TECHNIQUE TRAINING_PATH TEST_PATH
+```
+./classificar [ -v | --verbose ] TECHNIQUE TRAINING_PATH TEST_PATH
+```
 
 Exemplo usando verbose:
+```
+user@azazel:~/workspaces/metci/classifier/dist$ ./classificar -v NaiveBayes ../treinamento/ ../teste/
+```
 
-	* user@azazel:~/workspaces/metci/classifier/dist$ ./classificar -v NaiveBayes ../treinamento/ ../teste/
-
-exemplo sem verbose:
-
-	* user@azazel:~/workspaces/metci/classifier/dist$ ./classificar NaiveBayes ../treinamento/ ../teste/
+Exemplo sem verbose:
+```
+user@azazel:~/workspaces/metci/classifier/dist$ ./classificar NaiveBayes ../treinamento/ ../teste/
+```
