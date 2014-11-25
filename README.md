@@ -77,14 +77,14 @@ O parametro TRAINING_PATH deve apontar para o diretório contendo as imagens de 
 	sem_caracteres: contendo imagens que não contenham nem dígitos nem letras.
 Esses diretórios são mandatórios.
 
-<p>
+<span>
 O parametro TEST_PATH deve aponstar para o diretório contendo as imagens de teste. Esse diretório deve conter os seguintes diretórios:
 	digitos: contendo imagens que tenham apenas dígitos.
 	letras: contendo imagens que tenham apenas letras.
 	digitos_letras: contendo imagens que contenham dígitos e letras.
 	sem_caracteres: contendo imagens que não contenham nem dígitos nem letras.
 Esses diretórios são mandatórios.
-</p>
+</span>
 
 Para executar a classificação você deve executar a seguinte linha:
 
