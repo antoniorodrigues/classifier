@@ -19,7 +19,9 @@ Para compilar o programa é preciso:
 
 Para compilar, você precisa está no diretório raiz do projeto (diretório 'classifier') e executar o ant.
 
-	ant
+```
+ant
+```
 
 Se esse passo foi um sucesso, um diretório classifier/dist foi criado contendo um arquivo classificar e classifier.jar.
 
@@ -34,7 +36,7 @@ E faça:
 ```
 
 Esse comando vai mostrar um breve help mostrando como executar o script:
-
+```
 Parameters inside [] are not mandatory
 Usage: ./classificar [ -v | --verbose ] TECHNIQUE TRAINING_PATH TEST_PATH
 	./classificar -h | --help
@@ -65,7 +67,7 @@ O parametro TECHNIQUE é a técnica usada para classificar a imagem, uma lista d
 	RandomForest
 	Bagging
 	DecisionStump
-
+```
 O parametro TRAINING_PATH deve apontar para o diretório contendo as imagens de teste. Esse diretório deve conter os seguintes diretórios:
 	digitos: contendo imagens que tenham apenas dígitos.
 	letras: contendo imagens que tenham apenas letras.
