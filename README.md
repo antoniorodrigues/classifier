@@ -1,8 +1,10 @@
 classifier
 ====================
 
-Alunos: Antonio Rodrigues
-				Heitor Meira de Melo
+Alunos:
+
+* Antonio Rodrigues
+* Heitor Meira de Melo
 
 É um classificador de imagens construído para a disciplina de Metodologia Científica (2014.2), do curso de Ciência da Computação da Universidade Federal de Campina Grande (UFCG).
 
@@ -15,10 +17,7 @@ Requisitos:
 Para compilar o programa é preciso:
 
 	* java instalador (com java compiler) e ant (da Apache).
-
 	* Uma plataforma GNU Linux (o ambiente usado para testes foi Ubuntu LTS - 14.04.1)
-
-
 	* Esse programa ainda inclui a lib do weka (weka.jar) e guava (guava-18.0.jar).
 
 Para compilar, você precisa está no diretório raiz do projeto (diretório 'classifier') e executar o ant.
