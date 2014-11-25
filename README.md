@@ -1,7 +1,11 @@
 classifier
 ====================
 
+Alunos: Antonio Rodrigues
+				Heitor Meira de Melo
+
 É um classificador de imagens construído para a disciplina de Metodologia Científica (2014.2), do curso de Ciência da Computação da Universidade Federal de Campina Grande (UFCG).
+
 	Professor: Dr. Jacques Philippe Sauvé
 	Monitor: Natã Melo
 
