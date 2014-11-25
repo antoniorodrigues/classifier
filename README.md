@@ -20,7 +20,7 @@ Para compilar o programa é preciso:
 Para compilar, você precisa está no diretório raiz do projeto (diretório 'classifier') e executar o ant.
 
 ```
-ant
+user@azazel:~/workspaces/metci/classifier/dist$ ant
 ```
 
 Se esse passo foi um sucesso, um diretório classifier/dist foi criado contendo um arquivo classificar e classifier.jar.
@@ -32,7 +32,7 @@ Para executar, vá até o diretório classifier/dist (tanto o arquivo classifica
 
 E faça:
 ```
-./classificar -h.
+user@azazel:~/workspaces/metci/classifier/dist$ ./classificar -h.
 ```
 
 Esse comando vai mostrar um breve help mostrando como executar o script:
@@ -77,12 +77,14 @@ O parametro TRAINING_PATH deve apontar para o diretório contendo as imagens de 
 	sem_caracteres: contendo imagens que não contenham nem dígitos nem letras.
 Esses diretórios são mandatórios.
 
+<p>
 O parametro TEST_PATH deve aponstar para o diretório contendo as imagens de teste. Esse diretório deve conter os seguintes diretórios:
 	digitos: contendo imagens que tenham apenas dígitos.
 	letras: contendo imagens que tenham apenas letras.
 	digitos_letras: contendo imagens que contenham dígitos e letras.
 	sem_caracteres: contendo imagens que não contenham nem dígitos nem letras.
 Esses diretórios são mandatórios.
+</p>
 
 Para executar a classificação você deve executar a seguinte linha:
 
