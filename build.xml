@@ -1,0 +1,38 @@
+<project name="classifier" default="packaging" basedir=".">
+	<property name="dist" value="${basedir}/dist"/>
+	<property name="build" value="${basedir}/build"/>
+	<property name="src" value="${basedir}/src"/>
+	<property name="lib" value="${basedir}/lib"/>
+
+	<path id="classpath">
+		<pathelement location="${build}"/>
+		<pathelement location="${dist}"/>
+		<pathelement location="${lib}"/>
+		<fileset dir="${lib}">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+
+	<target name="clean">
+		<echo message="Cleaning..." />
+		<delete dir="${dist}" />
+		<delete dir="${build}" />
+		<delete file="classifier.jar"/>
+	</target>
+
+	<target name="compile" depends="clean">
+		<echo message="Compiling..."/>
+		<mkdir dir="${build}"/>
+		<javac srcdir="${src}" destdir="${build}" nowarn="on" encoding="utf8">
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+
+	<target name="packaging" depends="compile">
+		<echo message="Packaging in a .jar..." />
+		<mkdir dir="${dist}" />
+		<copy todir="${dist}" file="scripts/classificar"/>
+		<chmod file="${dist}/classificar" perm="755"/>
+		<jar destfile="${dist}/classifier.jar" basedir="${build}" manifest="MANIFEST.MF"/>
+	</target>
+</project>

@@ -1,0 +1,123 @@
+#!/bin/bash
+
+VERBOSE=false
+
+echo_fail() {
+	if [ "$TERM" != "dumb" ];then
+		echo -e "\e[31m$1"  1>&2 ; tput sgr0
+	else
+		echo -e "$1"  1>&2
+	fi
+}
+
+show_help() {
+	echo "Parameters inside [] are not mandatory"
+	echo "Usage: $0 [ -v | --verbose ] TECHNIQUE TRAINING_PATH TEST_PATH"
+	echo -e "\t$0 -h | --help"
+	echo
+	echo "-v | --verbose: makes the output verbose, showing info per files"
+	echo "-h | --help: shows this help"
+
+	echo "TRAINING_PATH: directory containing the training images. It must contain the directories: digitos, letras, digitos_letras, sem_caracteres"
+	echo "TEST_PATH: directory containing the test images. It must contain the directories: digitos, letras, digitos_letras, sem_caracteres"
+
+	echo "TECHNIQUE: available techniques are:"
+	echo -e "\tNaiveBayes"
+	echo -e "\tClassificationViaRegression"
+	echo -e "\tBIFReader"
+	echo -e "\tZeroR"
+	echo -e "\tREPTree"
+	echo -e "\tSimpleLogistic"
+	echo -e "\tRandomForest"
+	echo -e "\tBagging"
+	echo -e "\tDecisionStump"
+}
+
+check_technique() {
+	if [ -z $technique ]; then
+		echo_fail "Apparently, you are crazy and did not provided a valid technique. Please check your parameters.";
+		show_help;
+		exit 1;
+	fi
+}
+
+check_training_path() {
+	if [ -z $training_path ]; then
+		echo_fail "Apparently, you did not provided a valid training path. Please check your parameters.";
+		show_help;
+		exit 1;
+	fi
+	check_mandatory_directories $training_path
+}
+
+check_test_path() {
+	if [ -z $test_path ]; then
+		echo_fail "Apparently, you did not provided a valid test path. Please check your parameters.";
+		show_help;
+		exit 1;
+	fi
+	check_mandatory_directories $test_path
+}
+
+check_mandatory_directories() {
+	local parent_dir=$1
+	check_dir_exists $parent_dir;
+	check_dir_exists $parent_dir/digitos;
+	check_dir_exists $parent_dir/letras;
+	check_dir_exists $parent_dir/digitos_letras;
+	check_dir_exists $parent_dir/sem_caracteres;
+}
+
+check_dir_exists() {
+	if [ ! -d $1 ]; then
+		echo_fail "The $1 dir does not exists, it is mandatory according to the project description.";
+		exit 1;
+	fi
+}
+
+# Define the arguments provided for this is script as variables and checks if it is all ok.
+define_parameters() {
+	case $1 in
+		-h | --help)
+			show_help;
+			exit 0;
+			;;
+		-v | --verbose)
+			VERBOSE=true;
+			shift;
+			;;
+	esac
+
+	technique=$1;
+	shift;
+
+	training_path=$1;
+	shift;
+
+	test_path=$1;
+	shift;
+
+	check_technique;
+	check_training_path;
+	check_test_path;
+}
+
+success_or_die() {
+	if [ "$?" -ne "0" ]; then
+		echo_fail "An error occurred while executing main program. Please check your parameters."
+		exit 1;
+	fi
+}
+
+execute_classifier() {
+	java -classpath .:../lib/'*':classifier.jar com.classifier.ClassifierMain $VERBOSE $technique $training_path $test_path;
+	success_or_die;
+}
+
+main() {
+	define_parameters $@
+
+	execute_classifier;
+}
+
+main $@;

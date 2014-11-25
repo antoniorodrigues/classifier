@@ -1,0 +1,2 @@
+Main-Class: com.classifier.ClassifierMain
+Class-Path: . ../lib/weka.jar ../lib/guava-18.0.jar
