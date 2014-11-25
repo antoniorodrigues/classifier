@@ -5,11 +5,13 @@ classifier
 	Professor: Dr. Jacques Philippe Sauvé
 	Monitor: Natã Melo
 
-** Como compilar: **
+**Como compilar:**
 
 Requisitos:
 Para compilar o programa é preciso:
+
 	* java instalador (com java compiler) e ant (da Apache).
+
 	* Uma plataforma GNU Linux (o ambiente usado para testes foi Ubuntu LTS - 14.04.1)
 
 	* Esse programa ainda inclui a lib do weka (weka.jar) e guava (guava-18.0.jar).
@@ -21,7 +23,7 @@ Para compilar, você precisa está no diretório raiz do projeto (diretório 'cl
 Se esse passo foi um sucesso, um diretório classifier/dist foi criado contendo um arquivo classificar e classifier.jar.
 
 
-** Como executar **
+**Como executar**
 
 Para executar, vá até o diretório classifier/dist (tanto o arquivo classificar e classifier.jar devem ficar dentro desse diretório).
 
